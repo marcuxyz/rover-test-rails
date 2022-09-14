@@ -1,24 +1,49 @@
-# README
+Este projeto foi divido em duas partes:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Uma usando apenas Ruby puro + rspec para execução de testes
+- Segunda parte utilizando Rails para receber um arquivo e imprimir o resultado em tela
 
-Things you may want to cover:
+A primeira parte pode ser encontrada através [deste link](https://github.com/marcuxyz/test-rovers-ruby-only).
 
-* Ruby version
+# Requisitos
 
-* System dependencies
+- Rails 7
+- Ruby 3.1.2
 
-* Configuration
+# Execução
 
-* Database creation
+### Docker
 
-* Database initialization
+Você pode executar este projeto com o Docker. Então é necessário que você tenha o docker instalado, antes de tentar executar os comandos logo abaixo.
 
-* How to run the test suite
+Para construir uma imagem docker e executar o servidor execute o s comandos a seguir:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+$ docker build -t marcuxyz/rovers-rails .
+$ docker run -p 3000:3000 -it marcuxyz/rovers-rails rails s -b 0.0.0.0
+```
 
-* Deployment instructions
+> Usando um navegador, você pode acessar o site através do endereço: http://localhost:3000
 
-* ...
+### Sem docker
+
+Para executar esse projeto sem docker, valide se você tem instalado em seu computador
+as ferramentas que constam no requisitos. Tendo instaladas, execute o comando `bundle install` em seu terminal para instalar a gems necessárias.
+
+E então, você pode executar o comando: `rails s` para levantar o servidor rails local e acessa-lo através de um navegador.
+
+# Testes
+
+### Docker
+
+Ainda estando dentro do container, utilize o comando 
+
+```
+$ docker run -it marcuxyz/rovers-rails rspec 
+```
+para executar os testes. 
+
+
+### Sem docker
+
+Sem docker, apenas execute o comando `rspec` em seu termainal para rodar os testes.
