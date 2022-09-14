@@ -47,3 +47,7 @@ para executar os testes.
 ### Sem docker
 
 Sem docker, apenas execute o comando `rspec` em seu termainal para rodar os testes.
+
+# Screenshot
+
+<img width="1324" alt="Screen Shot 2022-09-14 at 00 31 02" src="https://user-images.githubusercontent.com/9499562/190055908-5788e649-216c-44a3-aa8d-39f0fa68b95e.png">
