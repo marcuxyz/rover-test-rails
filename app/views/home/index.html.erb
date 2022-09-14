@@ -1,30 +1,34 @@
 <div class="container">
 
   <section class="mt-5 card card-body">
+    <%=  form_with model: @rover do | f |%>
+      <div class="form-group mb-3">
+        <%= f.label :file, 'File' %>
+        <%= f.file_field :file, { class: 'form-control' } %>
+      </div>
+      <%= f.submit 'Enviar', { class: 'btn btn-success' } %>
+    <% end %>
+  </section>
+
+  <section class="mt-5 card card-body">
     <h2 class="my-5">Lista de rovers</h2>
     
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Data de envio</th>
-          <th scope="col">Cordenada atual</th>
-          <th scope="col">Posição</th>
           <th scope="col">Resultado</th>
+          <th scope="col">Download file</th>
         </tr>
       </thead>
       <tbody>
+      <% @rovers.each do |rover| %>
         <tr>
-          <td>25 de outubro, 2022</td>
-          <td>1 2 N</td>
-          <td>LMLMLMLMM</td>
-          <td>1 3 N</td>
+          <td><%= l rover.created_at, format: :calendar %></td>
+          <td><%= rover.result %></td>
+          <td><%= link_to 'Download', url_for(rover.file) %></td>
         </tr>
-        <tr>
-          <td>26 de outubro, 2022</td>
-          <td>3 3 E</td>
-          <td>MMRMMRMRRM</td>
-          <td>5 1 E</td>
-        </tr>
+      <% end %>
       </tbody>
     </table>
   </section>
