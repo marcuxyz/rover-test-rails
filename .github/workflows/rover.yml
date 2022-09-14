@@ -19,7 +19,7 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
       - name: Run tests
-        run: rspec -f documentation
+        run: bin/rspec -f documentation
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -30,4 +30,4 @@ jobs:
         with:
           bundler-cache: true
       - name: Check quality code
-        run: rubocop
+        run: bin/rubocop
