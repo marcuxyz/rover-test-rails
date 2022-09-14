@@ -5,14 +5,14 @@ feature "Visitors visit home page", type: :feature do
     expect(status_code).to eq 200
     expect(page).to have_content('Test Rover')
   end
-  
+
   scenario "and send test rover file" do
     travel_to(Time.zone.local(2022, 10, 26)) do
       visit root_path
       attach_file 'File', 'spec/fixtures/rover.txt'
       click_on 'Enviar'
     end
-    
+
     expect(current_path).to eq root_path
     expect(page).to have_content('Arquivo enviado com sucesso!')
     within 'table tbody tr:nth-child(1)' do

@@ -1,5 +1,5 @@
 class RoversController < ApplicationController
-  def create   
+  def create
     ParserRoverService.new.parse(file).each do |result|
       @rover = Rover.new(rover_params)
       @rover.result = result
